@@ -10,7 +10,7 @@ import random
 # Variablen
 print("// Blackjack von Lou! \\\ ")
 
-cardNames = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Bube', 'Dame', 'König']
+cardNames = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Prince', 'Queen', 'King']
 
 # Functions
 def randomCard():
@@ -26,14 +26,14 @@ def printCards():
         print("||You:", You.currentCard)
         print("||Dealer: ", Dealer.currentCard)
         
-def dealOrDraw():
-    return int(input("Deal(1) or Draw(2)?: "))
+def hitOrStand():
+    return int(input("Hit(1) or Stand(2)?: "))
 
 def game():
     printCards()
-    if dealOrDraw() == 1: # deal = you
+    if hitOrStand() == 1: # hit = you
         You.currentCard = You.currentCard + randomCard()[0]
-    else: # draw = dealer
+    else: # hit = dealer
         Dealer.curenntCard = Dealer.currentCard + randomCard()[0]
         if check() == 0:
             if You.currentCard > Dealer.currentCard:
@@ -98,6 +98,7 @@ while True:
     print("  Totalminus: ", You.totalminus)
     You.bet()
     game()
+    self.newDeal = true
         
         
         
