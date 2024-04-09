@@ -48,7 +48,8 @@ def drawBoard():
         if x / (3 * columnIteration) == 1:
             columnIteration += 1
             outputString = outputString + "|"
-        outputString = outputString + " " +  str(Boxes[x]["value"]) + " "
+        if x < 81:
+            outputString = outputString + " " +  str(Boxes[x]["value"]) + " "
 
 while checkWin() != True:
     drawBoard()
