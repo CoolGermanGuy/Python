@@ -1,0 +1,59 @@
+Boxes = []
+
+for x in range(1, 82):
+    newTable = {"value": 3, "solution": 9, "isChangeable": True, "isCorrect": None}
+    Boxes.append(newTable)
+    
+def set(line, column, number):
+    box = line * column
+    if Boxes[box]["isChangeable"]:
+        Boxes[box]["value"] = number
+        if Boxes[box]["value"] == Boxes[box]["solution"]:
+            Boxes[box]["isCorrect"] = True
+    else:
+        print("cannot change predefined number")
+    checkWin()
+        
+def checkWin():
+    for x in range (1, 82):
+        if not Boxes[x]["isCorrect"] == False or not Boxes[x]["value"]:
+            return False
+            break
+        else:
+            if x == 82:
+                return True
+                win()
+def win():
+    print("you won!")
+    
+def drawBoard():
+    lineIteration = 0
+    isFirstLine = True
+    columnIteration = 1
+    isFirstColumn = True
+    outputString = "|"
+    
+    print("=================================")
+    for x in range(0, 82):
+        if isFirstColumn == True:
+            outputString = outputString + "|"
+            isFirstColumn = False
+        if x % 9 == 0 and x >= 9:
+            lineIteration += 1
+            outputString = outputString + "||"
+            print(outputString)
+            outputString = "|"
+            if lineIteration % 3 == 0:
+                print("=================================")
+        if x / (3 * columnIteration) == 1:
+            columnIteration += 1
+            outputString = outputString + "|"
+        outputString = outputString + " " +  str(Boxes[x]["value"]) + " "
+
+while checkWin() != True:
+    drawBoard()
+    line = int(input("Line: "))
+    column = int(input("Column: "))
+    number = int(input("Number: "))
+    
+    set(line, column, number)
