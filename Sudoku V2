@@ -1,0 +1,50 @@
+import random
+
+newTable = {"value": 0, "solution": 9, "isChangeable": True, "isCorrect": False}
+board = [[{"value": 0, "solution": 9, "isChangeable": True, "isCorrect": False} for _ in range(9)] for _ in range(9)]
+
+def set(line, column, number):
+    line -= 1
+    column -= 1
+    if board[line][column]["isChangeable"]:
+        board[line][column]["value"] = number
+        if board[line][column]["value"] == board[line][column]["solution"]:
+            board[line][column]["isCorrect"] = True
+    else:
+        print("cannot change predefined number")
+    checkWin()
+        
+def checkWin():
+    for i in range(9):
+        for h in range(9):
+            if not board[i][h]["isCorrect"] == False or not board[i][h]["value"]:
+                return False
+                break
+            else:
+                if i == 9 and h == 9:
+                    return True
+                    win()
+def win():
+    print("you won!")
+    
+def drawBoard():
+    outputString = "|"
+    
+    for i in range(9): # loops over ROWS
+        for h in range(9): # loops over COLUMNS
+            print(board[i][h]["value"])
+
+            
+        
+
+while checkWin() != True:
+    drawBoard()
+    line = int(input("Line: "))
+    column = int(input("Column: "))
+    number = int(input("Number: "))
+    
+    set(line, column, number)
+
+
+
+
