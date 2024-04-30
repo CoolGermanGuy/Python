@@ -1,7 +1,7 @@
 import random
 import json
 
-path = r'LOCATIN\layouts\1.json' # I will add a randomizer here later
+path = r'LOCATION\layouts\1.json' # I will add a randomizer here later
 
 with open(path) as user_file:
     parsed_json = json.load(user_file)
