@@ -1,7 +1,7 @@
 import random
 import json
 
-path = r'C:\Users\###\Documents\example.json' # replace here
+path = r'C:\Users\HBGLou.Riedel\Documents\layouts\1.json'
 
 with open(path) as user_file:
     parsed_json = json.load(user_file)
