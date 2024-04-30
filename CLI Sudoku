@@ -1,6 +1,17 @@
 import random
+import json
 
+path = r'C:\Users\###\Documents\example.json' # replace here
+
+with open(path) as user_file:
+    parsed_json = json.load(user_file)
+    
 board = [[{"value": 0, "solution": 9, "isChangeable": True, "isCorrect": False} for _ in range(9)] for _ in range(9)]
+
+# translate json to python
+for row in range(9):
+    for column in range(9):
+        board[row][column] = parsed_json[row][column]
 
 def set(line, column, number):
     line -= 1
@@ -56,6 +67,7 @@ while checkWin() != True:
     number = int(input("Number: "))
     
     set(line, column, number)
+
 
 
 
