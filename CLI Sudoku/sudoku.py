@@ -1,14 +1,14 @@
 import random
 import json
 
-path = r'C:\Users\HBGLou.Riedel\Documents\layouts\1.json'
+path = r'LOCATIN\layouts\1.json' # I will add a randomizer here later
 
 with open(path) as user_file:
     parsed_json = json.load(user_file)
     
 board = [[{"value": 0, "solution": 9, "isChangeable": True, "isCorrect": False} for _ in range(9)] for _ in range(9)]
 
-# translate json to python
+# translates board data from json to python board variable
 for row in range(9):
     for column in range(9):
         board[row][column] = parsed_json[row][column]
