@@ -11,4 +11,7 @@ def sortWordsAlphabetically(array):
     middleArray[word] = middleArray[word].lower()
   # sort em
   for word in middleArray:
-    
+    # assign numbers
+    numberArray = []
+    for char in middleArray[word]:
+      # assign numeric values 
