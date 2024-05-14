@@ -18,3 +18,4 @@ def sortWordsAlphabetically(array):
     for char in middleArray[word]: # each character
       # assign numeric values
       numberArray.append(characters.index(char))
+  
