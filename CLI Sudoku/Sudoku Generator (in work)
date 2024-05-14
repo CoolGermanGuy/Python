@@ -20,14 +20,14 @@ def isValid(row, col, num):
                 return False
     return True
 
-def createBoard():
+def solve():
     for row in range(9):
         for col in range(9):
             if board[row][col]["value"] == 0: # if there's not already an entry
                 for num in range(1, 10):
                     if isValid(row, col, num):
                         board[row][col]["value"] = num
-                        if createBoard():
+                        if solve():
                             return True
                         board[row][col]["value"] = 0
                 return False
