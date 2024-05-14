@@ -1,0 +1,41 @@
+board = [[{"value": 0, "solution": 9, "isChangeable": True, "isCorrect": False} for _ in range(9)] for _ in range(9)]
+# board[row][column]
+
+def isValid(row, col, num):
+    # if num in row
+    for i in range(8):
+        if board[i][col]["value"] == num:
+            return False
+    # if num in column
+    for i in range(8):
+        if board[row][i]["value"] == num:
+            return False
+    # if num in 9x9
+    startRow = 3 * (row // 3)
+    startCol = 3 * (col // 3)
+    for i in range(3):
+        for j in range(3):
+            print(board[startRow + i][startCol + j]["value"])
+            if board[startRow + i][startCol + j]["value"] == num:
+                return False
+    return True  
+def drawBoard():
+    outputString = "| "
+    lineIteration = 0
+    columnIteration = 0
+    print("=========================")
+    for i in range(9): # loops over ROWS
+        for h in range(9): # loops over COLUMNS
+            #print(f'{i + 1}:{h + 1} {board[i][h]["value"]}')
+            outputString += str(board[i][h]["value"]) + " "
+            columnIteration += 1
+            if columnIteration % 3 == 0:
+                outputString += "| "
+        # for i in range(9) loop
+        print(outputString)
+        outputString = "| "
+        lineIteration += 1
+        if lineIteration % 3 == 0:
+            print("=========================")
+            
+drawBoard()
