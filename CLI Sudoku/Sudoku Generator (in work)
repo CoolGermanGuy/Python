@@ -18,7 +18,24 @@ def isValid(row, col, num):
             print(board[startRow + i][startCol + j]["value"])
             if board[startRow + i][startCol + j]["value"] == num:
                 return False
-    return True  
+    return True
+
+def createBoard():
+    for row in range(9):
+        for col in range(9):
+            if board[row][col]["value"] == 0: # if there's not already an entry
+                for num in range(1, 10):
+                    if isValid(row, col, num):
+                        board[row][col]["value"] = num
+                        if createBoard():
+                            return True
+                        board[row][col]["value"] = 0
+                return False
+    return True
+                
+                
+                
+
 def drawBoard():
     outputString = "| "
     lineIteration = 0
