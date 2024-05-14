@@ -1,10 +1,14 @@
 import re
 exampleArray = ["apple", "banana", "CoolGermanGuy", "I", "don't", "LIKE", "ThE", "gOvErNmEnT"]
+middleArray = []
+sortedArray = []
 def sortWordsAlphabetically(array):
   # remove special characters
-  for i in array:
-    array[i] = re.sub(r'[^a-zA-Z0-9\s]', '', array[i])
+  for word in array:
+    middleArray[word] = re.sub(r'[^a-zA-Z0-9\s]', '', array[word])
   # make everything lowercase
-  for i in array:
-    array[i] = array[i].lower()
+  for word in middleArray:
+    middleArray[word] = array[i].lower()
   # sort em
+  for word in middleArray:
+    
