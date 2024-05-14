@@ -8,7 +8,7 @@ def sortWordsAlphabetically(array):
     middleArray[word] = re.sub(r'[^a-zA-Z0-9\s]', '', array[word])
   # make everything lowercase
   for word in middleArray:
-    middleArray[word] = array[i].lower()
+    middleArray[word] = middleArray[word].lower()
   # sort em
   for word in middleArray:
     
